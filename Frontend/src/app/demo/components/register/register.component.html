@@ -1,0 +1,37 @@
+<div class="register" style="width:100%; height: 100vh; " fxLayoutAlign="center center"  >
+<div class="p-card" style="width:500px; height: 600px; opacity: 85%;"  >
+    <h1>Create Account</h1>
+    <div style="width: 100%; padding: 20px;" fxLayoutAlign="center center">
+        <form [formGroup]="formGroup" [style.width.%]="onMobile() ? '100' : '50'" fxLayout="column">
+            <div class="p-inputgroup">
+                <div class="p-field">
+                <label htmlFor="username">Username</label>
+                <input type="text" pInputText formControlName="username" placeholder="Username" id="username" />
+                </div>
+            </div>
+            <div class="p-inputgroup">
+                <div class="p-field">
+                <label htmlFor="email">Email</label>
+                <input type="text" email formControlName="email" placeholder="Email" id="email" />
+                </div>
+            </div>
+            <div class="p-inputgroup">
+                <div class="p-field">
+                <label htmlFor="password">Password</label>
+                <input type="password" Password formControlName="password" placeholder="Password" id="password" />
+                </div>
+            </div>
+            <div class="p-inputgroup">
+                <div class="p-field">
+                <label htmlFor="password">Confirm Password</label>
+                <input type="password" Password formControlName="confirm_password" placeholder="Confirm Password" id="confirm_password" />
+                </div>
+            </div>
+            <div class="p-inputgroup" fxLayoutAlign="center center">
+                <button type="button" pButton label="Create Account"(click)="onSave()"></button>
+            </div>
+            <p> already Account exist ?<a (click)="navigateToLogin()">Login</a></p>
+        </form>
+    </div>
+</div>
+</div>

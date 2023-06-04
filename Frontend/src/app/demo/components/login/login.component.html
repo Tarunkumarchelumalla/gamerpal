@@ -1,0 +1,25 @@
+
+<div style="width:100%" fxLayout="column" fxLayoutAlign="center center">
+  <div class="p-card" style="width:500px"  fxLayoutGap="5px" >
+      <h1 fxLayoutAlign="center ">Login</h1>
+      <form [formGroup]="formGroup" fxLayout="column" >
+        <div class="p-inputgroup">
+          <div class="p-field">
+            <label htmlFor="username">Email</label>
+            <input type="text" pInputText formControlName="email" placeholder="Email" id="username" />
+          </div>
+        </div>
+        <div class="p-inputgroup">
+          <div class="p-field">
+            <label htmlFor="password">Password</label>
+            <input type="password" Password formControlName="password" placeholder="Password" id="password" />
+          </div>
+        </div>
+        <div class="p-inputgroup">
+          <button type="button" pButton label="Login" (click)="onSave()"></button>
+          <button type="button" pButton label="Create Account" style="margin-left: 10px;" routerLink="register"></button>
+        </div>
+      </form>
+  </div>
+</div>
+  

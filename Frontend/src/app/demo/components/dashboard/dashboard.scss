@@ -1,0 +1,216 @@
+.tbg {
+    /* prevents horizontal scroll bar appearing  */
+    overflow-x: hidden;
+}
+
+/************************
+  Tinder Template by Miami
+  ************************/
+.tbg {
+    height: 720px;
+    width: 400px;
+    background-color: #fff;
+    margin: 0 auto;
+    border: 1px solid #c0c0c0;
+}
+.tbgwrap {
+    padding: 10px;
+}
+.theader {
+    height: 65px;
+    border-bottom: 1px solid #c0c0c0;
+}
+.theader i.fa-comments {
+    color: #c0c0c0;
+    font-size: 40px;
+    display: inline-block;
+    float: right;
+    padding: 10px 20px;
+    position: relative;
+}
+.theader i.fa-cog {
+    color: #c0c0c0;
+    font-size: 40px;
+    display: inline-block;
+    float: left;
+    padding: 10px 20px;
+    position: relative;
+}
+.tlogo {
+    width: 100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+.tlogo img {
+    width: 100px;
+}
+
+.tno {
+    background-color: #fff;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    top: 50px;
+    left: 25px;
+    border: 10px solid #f0f0f0;
+}
+.tno i {
+    color: #ff695b;
+    font-size: 80px;
+    padding: 17px 28px;
+}
+.ti {
+    background-color: #fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    left: 12px;
+    top: 30px;
+    border: 10px solid #f0f0f0;
+}
+.ti .fa-info {
+    font-size: 23px;
+    padding: 15px 20px;
+    color: #398beb;
+}
+.tyes {
+    background-color: #fff;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    top: 48px;
+    left: 0px;
+    border: 10px solid #f0f0f0;
+}
+.tyes i {
+    color: #5de19c;
+    font-size: 60px;
+    padding: 35px 30px;
+}
+.credit {
+    width: 400px;
+    height: auto;
+    position: relative;
+    top: 60px;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 2px 0px;
+}
+.credit a {
+    font-size: 7px;
+    letter-spacing: 5px;
+    color: #c0c0c0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Helvetica", sans-serif;
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card-container {
+    width: 400px;
+    height: 600px;
+  }
+  
+  .profile-picture {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+  
+  .profile-details {
+    margin-top: 10px;
+  }
+  
+  .profile-details p {
+    margin-bottom: 5px;
+  }
+  
+  .profile-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  ////cdk drag styles
+  /// 
+  .example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .example-list {
+    // border: solid 1px #ccc;
+    min-height: 60px;
+    // background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .example-box {
+    padding: 20px 10px;
+    // border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    // background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }

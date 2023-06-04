@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex="100%">
+
+  <mat-card class="mat-card">
+    <div fxLayout="column-reverse"  fxFlex="100%" fxLayoutAlign="space-between"  fxLayoutGap="20px" style="overflow-y: scroll;">
+      <div fxLayout="column" style="width:100%" style=" background-color: #f5f5f5; padding:15px">
+        <div *ngFor="let m of messagesSource" fxLayout="column" style="width:100%" [fxLayoutAlign]="userid === m.sender._id ? 'center end' : 'center start' ">
+          <div class="chat-bubble"  [ngStyle]="{'background-color': userid === m.sender._id  ? 'pink' : '#c2e0ff' }" >
+            <p class="message">{{ m.text }}</p>
+            <span class="head" fxLayoutAlign='start end'  *ngIf="userid !== m.sender._id">{{m?.sender?.username}}</span>
+            <span class="head" fxLayoutAlign='end end' *ngIf="userid === m.sender._id">me</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input" fxLayout="row" fxLayoutGap="20px" style="padding: 15px;" style="width:100%" fxLayout ="center center">
+      <textarea pInputTextarea rows="3" style="border-radius:4px; background-color: white; color: black; width: 85%;"[formControl]="messageControl" type="text" placeholder="Type your message..." #input (keydown.enter)= "sendMessage()"></textarea>
+   
+      <p-button label="Send" icon="pi pi-send" (click)="sendMessage()" iconPos="right"></p-button>
+    </div>
+  </mat-card>
+
+  
+</div>

@@ -1,0 +1,54 @@
+<div *ngIf="!showContent" class="logo-container">
+    <img src="https://store.steampowered.com/public/shared/images/header/logo_steam.svg?t=962016" alt="Steam Logo" style="width: 200px; height: auto;">
+</div>
+
+<div class="hero-component" style="width: 100%; height: 100vh; ">
+
+    <div *ngIf="showContent" class="content-container">
+
+        <p-toolbar class="toolbar">
+            <div class="p-toolbar-group-left">
+            <img src="https://cdn.cloudflare.steamstatic.com/store//about/logo_steam.svg" alt="Logo" style="width: 200px; height: auto;">
+            </div>
+        </p-toolbar>
+    
+        <div class="card flex justify-content-center" style="margin: 50px; margin-top: 100px;">
+            <p-card header="GP">
+                <div [fxLayout]="onMobile() ? 'column' : 'row'">
+                    <div>
+                        <img src="https://cdn.cloudflare.steamstatic.com/store//about/logo_steam.svg" alt="Steam Logo" style="width: 200px; height: auto;">
+                        <p class="m-0" style="font-size: 24px;">
+                           Gamer Pal is the ultimate destination for playing, Finding your perfect Teammate.
+                        </p>
+                        <div style="margin-top: 15px;" class="flex justify-content-start align-items-center flex-row gap-5">
+                            <div class="flex flex-column">
+                                <span>Online Users:</span>
+                                <span class="text-success">3</span>
+                            </div>
+                            <div class="flex flex-column">
+                                <span>Registered Users</span>
+                                <span class="text-warning">1</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-content-start" style="margin-top: 15px;">
+                            <button (click)="showDialog()" pButton type="button" class="steam-btn">Login Here</button>
+                            <p-dialog header="" [(visible)]="visible" [breakpoints]="{ '960px': '105vw' }" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+
+                                <app-login></app-login>
+
+                            </p-dialog>
+                        </div>
+
+                    </div>
+                    <div>
+                        <img src="https://i.imgur.com/ccC9z7Y.png" style="width: auto; height: 250px">
+                    </div>
+                </div>
+            </p-card>
+        </div>
+
+    </div>
+
+</div>
+  
+  

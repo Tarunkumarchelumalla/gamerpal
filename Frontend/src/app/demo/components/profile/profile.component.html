@@ -1,0 +1,106 @@
+<p-progressBar mode="indeterminate" *ngIf="trigger" [style]="{'height': '6px','position':'relative','top': '-35px', 'z-index':'1000'}"></p-progressBar>
+<mat-tab-group>
+    <mat-tab label="Profile" style="background: cornflowerblue;">
+ 
+        <div class="p-card" style="width:100%" fxLayout="column" style="padding:50px">
+ 
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+                <h1>Edit Profile....</h1>
+ 
+                <button mat-raised-button color="primary" (click)="onSave()" [disabled]="trigger">Save</button>
+            </div>
+ 
+            <mat-divider></mat-divider>
+ 
+            <form [formGroup]="formGroup">
+ 
+                <div [fxLayout]="onMobile ? 'column':'row'" style="width:100%" fxLayoutGap="20px">
+ 
+                    <mat-form-field [style.width.%]="onMobile ? '100':'50'">
+                        <mat-label>Username</mat-label>
+                        <input formControlName="username" matInput>
+                    </mat-form-field>
+ 
+                    <mat-form-field [style.width.%]="onMobile ? '100':'50'">
+                        <mat-label>Email</mat-label>
+                        <input matInput readonly formControlName="email">
+                    </mat-form-field>
+ 
+                </div>
+                <div [fxLayout]="onMobile ? 'column':'row'" style="width:100%" fxLayoutGap="20px">
+ 
+                    <mat-form-field [style.width.%]="onMobile ? '100':'100'">
+                        <mat-label>Bio</mat-label>
+                        <input formControlName="bio" matInput>
+                    </mat-form-field>
+ 
+                </div>     
+ 
+                <mat-form-field class="example-chip-list" fxLayout="column" style="width:100%">
+                    <mat-label>Favorite Games</mat-label>
+                    <mat-chip-grid #chipGrid aria-label="Enter Games">
+                        <mat-chip-row *ngFor="let fruit of fruits"
+                                    (removed)="remove(fruit)"
+                                    [editable]="true"
+                                    [aria-description]="'press enter to edit ' + fruit.name">
+                        {{fruit.name}}
+                        <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
+                            <mat-icon svg-icon="cancel"></mat-icon>
+                        </button>
+                        </mat-chip-row>
+                        <input placeholder="Enter games"
+                                [matChipInputFor]="chipGrid"
+                                (matChipInputTokenEnd)="add($event)"/>
+                    </mat-chip-grid>
+                </mat-form-field>
+ 
+            </form>
+ 
+            <div style="width:100%">
+                <h1> Select Your Banner</h1>
+ 
+                <mat-grid-list cols="3" rowHeight="1.5:1">
+ 
+                    <mat-grid-tile *ngFor="let item of gamesData; index as i"  fxLayoutGap="5px">
+ 
+                        <div fxLayout="column" style="margin: 20px;" >
+                            <img (click)="getSelectedItem(item)" [ngClass]="{'selected': selectedItem === item}" [src]="item?.thumbnail" style="width:100%"/>
+                            <span fxLayoutAlign="center center" fxLayout="row" style="width:100%;">{{item.title}}</span>
+                        </div>
+ 
+                    </mat-grid-tile>
+ 
+                </mat-grid-list>
+ 
+ 
+            </div>
+ 
+        </div>
+ 
+    </mat-tab>
+ 
+    <mat-tab label="Reaction Test">
+ 
+        <div style="margin: 20px;">
+ 
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+                <h1>Reaction Time Test</h1>
+                <button mat-raised-button color="warn" (click)="resetReactionTest()">Restart Reaction Test</button>
+            </div>
+ 
+            <span style=" font-size: 18px;color: coral; margin-top: 20px;">Click when red color appears, See if you are fast as you say!</span>
+ 
+            <div *ngIf="!started" style="margin-top: 30px;">
+                <button mat-raised-button color="primary" (click)="startReactionTest()">Start</button>
+            </div>
+            <div *ngIf="started && !finished">
+                <div (click)="finishReactionTest()" [style.background-color]="color" class="target"></div>
+            </div>
+            <div *ngIf="finished" style="margin-top: 100px;">
+                <p class="result">YOUR REACTION TIME: {{ reactionTime }} MS</p>
+            </div>
+ 
+        </div>
+ 
+    </mat-tab>
+</mat-tab-group>

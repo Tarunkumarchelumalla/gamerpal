@@ -1,0 +1,67 @@
+<router-outlet></router-outlet>
+
+  <p-progressBar mode="indeterminate" *ngIf="trigger" [style]="{'height': '6px','position':'relative','top': '-35px', 'z-index':'1000'}"></p-progressBar>
+
+<div style="width:100%" fxLayout="column" fxLayoutGap="20px">
+
+  <div fxLayout="row" style="width:100%" fxLayoutGap="20px">
+
+    <div  fxLayout="column"
+       [style.width.%]="33"
+        cdkDropList
+        #swipeLeftList="cdkDropList"
+        [cdkDropListData]="swipedLeftArray.value"
+        [cdkDropListConnectedTo]="[cardsList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        
+    </div>
+    
+      <br/>
+
+      <div
+        fxLayout="column"
+        [style.width.%]="33"
+        style="height:500px"
+        cdkDropList
+        #cardsList="cdkDropList"
+        [cdkDropListData]="cards"
+        [cdkDropListConnectedTo]="[swipeRightList,swipeLeftList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <!-- <div class="example-box"  cdkDrag>{{item}}</div> -->
+           <div class="card-container" *ngFor="let item of cards" cdkDrag>
+            <p-card>
+              <img [src]="!item.avatar?'https://wallpaperaccess.com/full/3037908.jpg':item.avatar" alt="Profile Picture" class="profile-picture" />
+              <h2 class="profile-name">{{item.username}}</h2>
+              <div class="profile-details">
+                <p><i class="pi pi-map-marker"></i> {{item.bio}}</p>
+                <p><i class="pi pi-envelope"></i> {{item.email}}</p>
+              </div>
+              <div class="profile-buttons">
+                <button pButton type="button" label="Like" icon="pi pi-check" class="p-button-success"></button>
+                <button pButton type="button" label="Dislike" icon="pi pi-times" class="p-button-danger"></button>
+              </div>
+            </p-card>
+          </div>
+      </div>
+      
+      <br/>
+
+      <div
+        fxLayout="column"
+        [style.width.%]="33"
+        cdkDropList
+        #swipeRightList="cdkDropList"
+        [cdkDropListData]="swipedRightArray.value"
+        [cdkDropListConnectedTo]="[swipeLeftList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <!-- <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div> -->
+      </div> 
+  </div>
+  
+
+</div>
+    
+
