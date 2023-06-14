@@ -43,7 +43,12 @@ export class TokenService  {
     ).subscribe(v =>{
 
       if(v){
-  
+
+        const currentRoute = this.router.url;
+        if (currentRoute === '/' || currentRoute ==="/register") {
+          console.log("login pe he ab")
+          return; // Exit early if the current route is "/"
+        }
         console.log("token expires refreesh called")
 
         const refreshToken = this.cookieService.get("refreshToken")
